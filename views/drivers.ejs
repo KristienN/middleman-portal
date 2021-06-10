@@ -4,27 +4,20 @@
 <body>
   <%- include('./partials/nav.ejs') %> 
   <%- include('./partials/hero.ejs') %> 
-  <section class="driver">
-    <div class="card-wrapper">
-        <div class="about-us">
-            <img src="" alt="">
-            <div class="text-wrapper">
-                <h2>Available Drivers:</h2>
-                <table class="driver-table">
-                  <thead>
-                    <th>Name</th>
-                    <th>Car</th>
-                    <th>Available</th>
-                  </thead>
-                  <tbody>
-                    <td>Kristien Nyamutsaka</td>
-                    <td>Corolla Verso</td>
-                    <td><div class="non-avail"></div></td>
-                  </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+  <section class="driver" >
+    <h2>Drivers</h2>
+    <table>
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Contact</th>
+        <th>Car</th>
+        <th>Available</th>
+      </thead>
+      <tbody>
+        <%- include('./partials/show_drive.ejs') %> 
+      </tbody>
+    </table>
   </section>
 
   <%- include('./partials/footer.ejs') %> 
