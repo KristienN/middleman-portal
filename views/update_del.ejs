@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/hero.ejs') %>
+    <section class="order">
+    <div class="form">
+      <legend>Update Delivery</legend>
+      <p>Please use the form to update the delivery</p>
+
+      <form  method="POST">
+        <div class="input">
+          <label for="sender">Sender</label>
+          <input id="sender" name="sender" type="text" value="<%= request.sender%>" placeholder="Supplier name" required>
+        </div>
+
+        <div class="input">
+          <label for="receiver">Receipient</label>
+          <input id="receiver" name="receiver" type="text" value="<%= request.receiver%>" placeholder="Customer name">
+        </div>
+
+        <div class="input">
+          <label for="origin">Origin</label>
+          <input id="origin" name="origin" type="text" value="<%= request.origin%>" placeholder="Pick-up location">
+        </div>
+
+        <div class="input">
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" value="<%= request.destination%>" placeholder="Drop-off location">
+        </div>
+
+        <div class="input">
+          <label for="contact">Contact</label>
+          <input id="contact" name="contact" type="text" value="<%= request.contact%>" placeholder="Mobile No.">
+        </div>
+
+        <div class="input">
+          <label for="driver">Driver</label>
+          <input id="driver" name="driver" type="text" value="<%= request.driver%>" placeholder="Driver name">
+        </div>
+
+        <div class="input">
+          <label for="price">Price</label>
+          <input id="price" name="price" type="text" value="<%= request.price%>" placeholder="5, 6 or 7">
+        </div>
+         <button id="update-btn" type="submit">Update</button>
+      </form>
+     
+    </div>
+    </section>
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>

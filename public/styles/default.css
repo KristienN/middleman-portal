@@ -105,11 +105,6 @@ p {
   font-size: 20px;
 }
 
-.nav .nav-wrapper .nav-items li:nth-child(3) a {
-  color: #000;
-  background-color: #fff;
-}
-
 .hero {
   height: 40vh;
   display: -webkit-box;
@@ -259,6 +254,7 @@ p {
 
 .login .login-form .input input {
   height: 30px;
+  width: 150px;
 }
 
 .login .login-form button {
@@ -319,13 +315,18 @@ p {
   color: #000;
   background-color: #D48309;
   padding: 1em;
+  opacity: 0.9;
 }
 
 .order .form legend {
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  text-decoration: underline;
+  color: white;
+}
+
+.order .form p {
+  color: white;
 }
 
 .order .form form {
@@ -346,12 +347,18 @@ p {
   margin: 1em;
 }
 
+.order .form form .input label {
+  color: #fff;
+}
+
 .order .form form .input input {
   border: 2px solid black;
   height: 30px;
   width: 200px;
   margin: 1em;
   padding: 0.5em;
+  background-color: black;
+  color: #fff;
 }
 
 .order .form button {
@@ -366,6 +373,7 @@ p {
   border: none;
   border-radius: 10px;
   background-color: black;
+  width: 100%;
 }
 
 .order .form button:hover {
@@ -377,6 +385,61 @@ p {
 .err-msg {
   color: red;
   font-size: 14px;
+}
+
+.mgmnt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mgmnt form table, .mgmnt form th, .mgmnt form td {
+  border: 1px solid black;
+}
+
+.mgmnt form table {
+  border: 3px solid black;
+  border-collapse: collapse;
+  width: 75vw;
+}
+
+.mgmnt form table thead {
+  height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  background: #D48309;
+}
+
+.mgmnt form table tbody {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+}
+
+.mgmnt form table tr {
+  color: black;
+}
+
+.mgmnt form table tr:hover {
+  color: #D48309;
+  background-color: #000;
+}
+
+.mgmnt form table td {
+  padding: .4em;
+}
+
+.mgmnt form table td a img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .success {
@@ -677,9 +740,6 @@ p {
   }
   .nav .nav-wrapper .nav-items li {
     margin: 0 2em;
-  }
-  .nav .nav-wrapper .nav-items li:nth-child(3) {
-    display: none;
   }
   .hero {
     display: -webkit-box;

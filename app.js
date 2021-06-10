@@ -26,6 +26,10 @@ const flash = require('express-flash');
 const session = require('express-session');
 // const MongoStore = require('connect-mongo')(session);
 
+//Axios
+
+const axios = require('axios');
+
 
 // static files
 app.use(express.static('public'));
@@ -71,47 +75,33 @@ app.get('/', (req,res) =>{
 });
 
 app.post('/login', passport.authenticate('local', {
-    successRedirect: 'orders',
+    successRedirect: 'deliver',
     failureRedirect: '/',
     failureFlash: true
 }));
 
-app.get('/about', checkAuth,(req,res) =>{
-    res.render('about');
-});
-
-app.get('/drivers', checkAuth,(req,res) =>{
-    res.render('drivers');
-});
-
-app.get('/orders', checkAuth,(req,res) =>{
-    res.render('orders');
-});
-
-app.get('/success', (req,res)=>{
-    res.render('success');
-});
 
 
+const homeRoute = require('./routes/home');
 const requestRouter = require('./routes/request');
 const userRouter = require('./routes/auth');
+const driverRouter = require('./routes/driver');
+const escortRouter = require('./routes/escort');
 const { static } = require('express');
 
+
+app.use('/', homeRoute);
 app.use('/api/request', requestRouter);
 app.use('/api/auth',userRouter);
+app.use('/api/driver', driverRouter);
+app.use('/api/escort', escortRouter);
 
 app.listen(port, (err)=>{
     if(err) throw err
     console.log(`Server is running on port: ${port}`)
 });
 
-function checkAuth(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
 
-    res.redirect('/');
-}
 
 // function checkNotAuth(res, req, next){
 //     if(req.isAuthenticated()){

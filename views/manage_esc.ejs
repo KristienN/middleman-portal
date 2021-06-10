@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/hero.ejs') %>
+    <div class="mgmnt">
+        <form action="/" method="post">
+            <table class="table">
+                <thead>
+                    <th>Traveller</th>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Contact</th>
+                    <th>Price</th>
+                </thead>
+
+                <tbody>
+                    <%- include('./partials/show_esc.ejs') %> 
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <%- include('./partials/footer.ejs') %> 
+
+    <%= data %> 
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/hero.ejs') %>
+
+      <section class="order">
+    <div class="form">
+      <legend>Escort Request</legend>
+      <p>fill in form to complete escort</p>
+
+      <form action="api/escort/add" method="POST">
+        <div class="input">
+          <label for="sender">Traveller</label>
+          <input id="sender" name="traveller" type="text" placeholder="Supplier name" required>
+        </div>
+
+        <div class="input">
+          <label for="origin">Origin</label>
+          <input id="origin" name="origin" type="text" placeholder="Pick-up location">
+        </div>
+
+        <div class="input">
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" placeholder="Drop-off location">
+        </div>
+
+        <div class="input">
+          <label for="contact">Contact</label>
+          <input id="contact" name="contact" type="text" placeholder="Mobile No.">
+        </div>
+
+        <div class="input">
+          <label for="driver">Driver</label>
+          <input id="driver" name="driver" type="text" placeholder="Driver name">
+        </div>
+
+        <div class="input">
+          <label for="price">Price</label>
+          <input id="price" name="price" type="text" placeholder="5, 6 or 7">
+        </div>
+         <button id="submit-btn" type="submit">Submit</button>
+      </form>
+     
+    </div>
+  </section>
+
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>

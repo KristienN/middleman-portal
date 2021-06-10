@@ -1,5 +1,20 @@
 <section class="hero">
-    <h1>Middleman Deliveries</h1>
-    <p>From the World, To Your Doorstep.</p>
-    <a href="/orders"><img src="images/delivery.svg" alt=""></a>
+    <h1>Middleman <%= branch %> </h1>
+    <p>From the World, To Your Doorstep, Vice Versa</p>
+    <div class="hero-btn">
+      <% if(isDel&&manage){ %> 
+      <a href="/manage"><img style="background-color: #D48309;" src="images/delivery.svg" alt=""></a>
+      <a href="/manage_esc"><img src="images/taxi.png" alt=""></a>
+      <% } if(!isDel&&manage){ %> 
+        <a href="/manage"><img src="images/delivery.svg" alt=""></a>
+        <a href="/manage_esc"><img style="background-color: #D48309;" src="images/taxi.png" alt=""></a>
+      <% } %> 
+      <% if(isDel&&!manage){ %> 
+      <a href="/deliver"><img style="background-color: #D48309;" src="images/delivery.svg" alt=""></a>
+      <a href="/escort"><img src="images/taxi.png" alt=""></a>
+      <% } if(!isDel&&!manage) { %> 
+        <a href="/deliver"><img src="images/delivery.svg" alt=""></a>
+        <a href="/escort"><img style="background-color: #D48309;" src="images/taxi.png" alt=""></a>
+      <% } %> 
+    </div>
   </section>

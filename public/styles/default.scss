@@ -129,14 +129,6 @@ p{
                 }
 
             }
-
-            li:nth-child(3) {
-
-                a {
-                    color: #000;
-                    background-color: #fff;
-                }
-            }
         }
     }
 }
@@ -230,9 +222,11 @@ p{
             justify-content: space-between;
             gap: 1em;
             width: 200px;
+            
 
             input{
                 height: 30px;
+                width: 150px;
             }
         }
 
@@ -265,12 +259,17 @@ p{
         color: #000;
         background-color: #D48309;
         padding: 1em;
+        opacity: 0.9;
 
         legend{
             font-size: 30px;
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            text-decoration: underline;
+            color: white;
+        }
+
+        p{
+            color: white;
         }
 
         form{
@@ -283,6 +282,10 @@ p{
                 justify-content: space-between;
                 align-items: center;
                 margin: 1em;
+
+                label{
+                    color: #fff;
+                }
                 
                 input{
                     border: 2px solid black;
@@ -290,6 +293,8 @@ p{
                     width: 200px;
                     margin: 1em;
                     padding: 0.5em;
+                    background-color: black;
+                    color: #fff;
                 }
             }
         }
@@ -298,6 +303,7 @@ p{
             justify-self: center;
             @include buttonStyle();
             background-color: black;
+            width: 100%;
         }
     }
 }
@@ -305,6 +311,56 @@ p{
 .err-msg{
     color: red;
     font-size: 14px;
+}
+
+.mgmnt{
+    @include allCentre();
+
+    form{
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        table{
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 75vw;
+
+            thead{
+                height: 35px;
+                font-family: 'Montserrat', sans-serif;
+                background: #D48309;
+            }
+
+            tbody{
+                font-family: 'Open Sans', sans-serif;
+                background-color: #fff;
+            }
+
+            tr{
+                color: black;
+            }
+
+            tr:hover{
+                color: $mmgold;
+                background-color: $mmblack;
+            }
+
+            td{
+                padding: .4em;
+                a{
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        object-fit: cover;
+                        background-color: white;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .success{
@@ -514,9 +570,6 @@ p{
                     margin: 0 2em;
                 }
 
-                li:nth-child(3){
-                    display: none;
-                }
             }
         }
 

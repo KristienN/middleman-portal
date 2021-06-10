@@ -10,12 +10,12 @@ router.post('/create-user', async (req,res)=>{
 
     let newUser = new User({
         username: req.body.username,
-        password: hashPass
+        password: hashPass,
+        isAdmin: req.body.isAdmin
     });
-
     await newUser.save()
-    .then((res)=>{
-        res.send(newUser);
+    .then((response)=>{
+        res.send(response);
     }).catch(err => res.status(500).send(err));
   
 });
