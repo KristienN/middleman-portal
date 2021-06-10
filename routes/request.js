@@ -1,5 +1,15 @@
 const router = require('express').Router();
 let Request = require('../models/request.model');
+const nodemailer = require('nodemailer');
+let transporter = nodemailer.createTransport({
+    host: 'smtp-mail.outlook.com',
+    port: 587,
+    secure: false,
+    auth:{
+        user: "no_reply.middlemanafrica@outlook.com",
+        pass:"Genesis@2021"
+    },
+});
 
 router.get("/", async (req,res)=>{
     await Request.find()
@@ -35,10 +45,23 @@ router.post("/add", async (req,res)=> {
         price
     });
 
+    const str = "Sender: " + sender+ ", Receiver: " + receiver + ", Driver: " + driver + ", Destination: " + destination + ".";
+
+    const message = {
+        from: "no_reply.middlemanafrica@outlook.com",
+        to: "middlemanafrica@gmail.com",
+        subject: "New Request Added",
+        text: " The following request has been successfully added: " + str
+    }
+
     await newRequest.save()
     .then((response)=>{
         console.log("Added!");
-        res.redirect('../../../deliver')
+        transporter.sendMail(message, (err, info)=>{
+            if(err) throw err;
+        });
+        res.redirect('../../../deliver');
+        console.log("message sent!");
     })
     .catch((err)=> res.status(400).json('Error: '+ err));
 });
