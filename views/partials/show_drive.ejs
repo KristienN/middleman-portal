@@ -1,0 +1,15 @@
+<%  for(let i = 0; i<data.length; i++){%> 
+
+<tr>
+    <td><%= data[i].fname%></td>
+    <td><%= data[i].lname%></td>
+    <td><%= data[i].car%></td>
+    <td><%= data[i].contact%></td>
+    <% if(data[i].isActive){ %> 
+    <td style="display: flex; justify-content: center; align-items: center;"><div class="active"></div></td>
+    <% } else { %> 
+    <td style="display: flex; justify-content: center;align-items: center;"><div class="not-active"></div></td>
+    <% } %> 
+</tr>
+
+<% } %> 

@@ -9,8 +9,12 @@ router.get('/about', checkAuth,(req,res) =>{
     res.render('about', {manage:false, isDel:true,branch: "", title:"About"});
 });
 
-router.get('/drivers', checkAuth,(req,res) =>{
-    res.render('drivers', {manage:true, isDel: true,branch: "Drivers", title:"Drivers"});
+router.get('/drivers', checkAuth, async (req,res) =>{
+    await Driver.find()
+    .then((drivers)=> {
+        res.render('drivers', {manage:true, isDel: true,branch: "Drivers", title:"Drivers", data: drivers})
+    })
+    .catch( err=> res.status(500).json("Error"));
 });
 
 router.get('/deliver', checkAuth,(req,res) =>{

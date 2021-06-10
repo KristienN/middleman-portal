@@ -232,6 +232,7 @@ p{
 
         button{
             @include buttonStyle();
+            width: 100%;
         }
     }
 }
@@ -313,6 +314,75 @@ p{
     font-size: 14px;
 }
 
+.act{
+    display: none;
+}
+
+.active{
+    @include ellipse(20px);
+    background-color: green;
+    @include shadowLight();
+    justify-self: center;
+    align-self: center
+}
+
+.not-active{
+    @include ellipse(20px);
+    background-color: red;
+    justify-self: center;
+    align-self: center;
+    @include shadowLight();
+}
+table, th, td {
+    border: 1px solid black;
+}
+
+table{
+    border: 3px solid black;
+    border-collapse: collapse;
+    width: 75vw;
+
+    thead{
+        height: 35px;
+        font-family: 'Montserrat', sans-serif;
+        background: #D48309;
+    }
+
+    tbody{
+        font-family: 'Open Sans', sans-serif;
+        background-color: #fff;
+    }
+
+    tr{
+        color: black;
+    }
+    tr:hover{
+        color: $mmgold;
+        background-color: $mmblack;
+
+        .act{
+            @include allCentre();
+            flex-direction: row;
+        }
+
+
+    }
+
+    td{
+        padding: .4em;
+        a{
+            img{
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+                background-color: white;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+
 .mgmnt{
     @include allCentre();
 
@@ -342,9 +412,19 @@ p{
                 color: black;
             }
 
+            
+
+
             tr:hover{
                 color: $mmgold;
                 background-color: $mmblack;
+
+                .act{
+                    @include allCentre();
+                    flex-direction: row;
+                }
+
+
             }
 
             td{
@@ -361,6 +441,11 @@ p{
             }
         }
     }
+}
+
+.driver{
+    @include allCentre();
+    flex-direction: column;
 }
 
 .success{
@@ -414,64 +499,6 @@ p{
     }
 }
 
-.driver{
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        background: url(../images/wave.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-color: #fff;
-
-        @include allCentre();
-
-        .card-wrapper {
-            margin-top: 0em;
-            @include allCollumn();
-            width: 60vw;
-            border: 5px solid white;
-            border-radius: 10px;
-            height: 60vh;
-            color: #000;
-            background-color: #D48309;
-            padding: 1em;
-            align-items: center;
-
-            h2{
-                text-align: center;
-            }
-            
-
-            .driver-table{
-                border: 1px solid #000;
-                width: 70%;
-                font-family: 'Open Sans', sans-serif;
-                background-color: #000;
-                color: #fff;
-
-                th{
-                    border: 1px solid black;
-                    padding: 1em 2em;
-                }
-                
-                td{
-                    border: 1px solid black;
-                    padding: 1em 2em;
-
-                    .avail{
-                        @include ellipse(20px);
-                        background-color: greenyellow;
-                    }
-
-                    .non-avail{
-                        @include ellipse(20px);
-                        background-color: red;
-                    }
-                }
-
-            }
-        }
-}
 
 .footer{
     color: #fff;

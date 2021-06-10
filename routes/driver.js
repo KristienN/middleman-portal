@@ -24,7 +24,7 @@ router.post("/add", async (req,res)=> {
     });
 
     await newDriver.save()
-    .then(()=> res.render('success'))
+    .then(()=> res.json("added!"))
     .catch((err)=> res.status(400).json('Error: '+ err));
 });
 
@@ -32,8 +32,15 @@ router.post("/add", async (req,res)=> {
 
 // });
 
-// router.delete("/delete/:id", async (req, res)=>{
-    
-// });
+router.delete("/delete/:id", async (req, res)=>{
+    const id = req.params.id;
+    await Driver.findByIdAndDelete(id)
+    .then(data =>{
+        res.json("Deleted");
+    })
+    .catch(err=>{
+        res.status(500).json("Error: " + err);
+    })
+});
 
 module.exports = router;

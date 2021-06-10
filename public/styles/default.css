@@ -266,6 +266,7 @@ p {
   background-color: #D48309;
   border: none;
   border-radius: 10px;
+  width: 100%;
 }
 
 .login .login-form button:hover {
@@ -387,6 +388,93 @@ p {
   font-size: 14px;
 }
 
+.act {
+  display: none;
+}
+
+.active {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.not-active {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border: 3px solid black;
+  border-collapse: collapse;
+  width: 75vw;
+}
+
+table thead {
+  height: 35px;
+  font-family: 'Montserrat', sans-serif;
+  background: #D48309;
+}
+
+table tbody {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+}
+
+table tr {
+  color: black;
+}
+
+table tr:hover {
+  color: #D48309;
+  background-color: #000;
+}
+
+table tr:hover .act {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+table td {
+  padding: .4em;
+}
+
+table td a img {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: white;
+  border-radius: 50%;
+}
+
 .mgmnt {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -429,6 +517,22 @@ p {
   background-color: #000;
 }
 
+.mgmnt form table tr:hover .act {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .mgmnt form table td {
   padding: .4em;
 }
@@ -440,6 +544,22 @@ p {
      object-fit: cover;
   background-color: white;
   border-radius: 50%;
+}
+
+.driver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .success {
@@ -515,82 +635,6 @@ p {
   background-color: #D48309;
   padding: 1em;
   gap: 4em;
-}
-
-.driver {
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url(../images/wave.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.driver .card-wrapper {
-  margin-top: 0em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 60vw;
-  border: 5px solid white;
-  border-radius: 10px;
-  height: 60vh;
-  color: #000;
-  background-color: #D48309;
-  padding: 1em;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.driver .card-wrapper h2 {
-  text-align: center;
-}
-
-.driver .card-wrapper .driver-table {
-  border: 1px solid #000;
-  width: 70%;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #000;
-  color: #fff;
-}
-
-.driver .card-wrapper .driver-table th {
-  border: 1px solid black;
-  padding: 1em 2em;
-}
-
-.driver .card-wrapper .driver-table td {
-  border: 1px solid black;
-  padding: 1em 2em;
-}
-
-.driver .card-wrapper .driver-table td .avail {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: greenyellow;
-}
-
-.driver .card-wrapper .driver-table td .non-avail {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: red;
 }
 
 .footer {

@@ -48,6 +48,7 @@ router.put("/update/:id", async (req,res)=>{
     await Request.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
     .then(data => {
         res.json("Updated Request")
+        res.redirect('../../../manage')
     })
     .catch(err =>{
         res.status(500).json("Error: " + err);
