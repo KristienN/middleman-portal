@@ -20,7 +20,7 @@ router.get('/escort', checkAuth, (req,res)=>{
 });
 
 router.get('/manage', checkAuth, checkRole, (req,res)=>{
-    axios.get('http://localhost:5000/api/request/')
+    axios.get('http://middleman-node.herokuapp.com/api/request/')
     .then(requests =>{
         res.render('manage', {manage:true, isDel:true ,branch: "Deliveries", title:"Orders", data: requests.data})
     })
@@ -29,7 +29,7 @@ router.get('/manage', checkAuth, checkRole, (req,res)=>{
 });
 
 router.get('/manage_esc', checkAuth, (req,res)=>{
-    axios.get('http://localhost:5000/api/escort/')
+    axios.get('http://middleman-node.herokuapp.com/api/escort/')
     .then(escorts =>{
         res.render('manage_esc', {manage:true, isDel:false ,branch: "Escort", title:"Orders", data: escorts.data})
     })
@@ -39,7 +39,7 @@ router.get('/manage_esc', checkAuth, (req,res)=>{
 
 router.get('/update_del', checkAuth, async (req,res)=>{
     const qid = req.query.id;
-    await axios.get('http://localhost:5000/api/request/',{}, {params: { id: qid}})
+    await axios.get('http://middleman-node.herokuapp.com/api/request/',{}, {params: { id: qid}})
     .then((requestdata)=>{
         console.log(requestdata);
         res.render('update_del', {manage:true,isDel:true ,branch: "Deliveries", title:"Orders", request: requestdata.data})
