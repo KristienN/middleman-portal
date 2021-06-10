@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
-const axios = require('axios');
+const Request = require('../models/request.model');
+const Escort = require('../models/escort.model');
+const Driver = require('../models/driver.model');
 
 
 router.get('/about', checkAuth,(req,res) =>{
@@ -19,19 +21,19 @@ router.get('/escort', checkAuth, (req,res)=>{
     res.render('escort', {manage:false,isDel:false, branch: "Escort", title:"Orders"});
 });
 
-router.get('/manage', checkAuth, checkRole, (req,res)=>{
-    axios.get('http://middleman-node.herokuapp.com/api/request/')
+router.get('/manage', checkAuth, checkRole, async (req,res)=>{
+    await Request.find()
     .then(requests =>{
-        res.render('manage', {manage:true, isDel:true ,branch: "Deliveries", title:"Orders", data: requests.data})
+        res.render('manage', {manage:true, isDel:true ,branch: "Deliveries", title:"Orders", data: requests})
     })
     .catch(err => res.status(500).json("error" + err));
     
 });
 
-router.get('/manage_esc', checkAuth, (req,res)=>{
-    axios.get('http://middleman-node.herokuapp.com/api/escort/')
+router.get('/manage_esc', checkAuth, async(req,res)=>{
+    await Escort.find()
     .then(escorts =>{
-        res.render('manage_esc', {manage:true, isDel:false ,branch: "Escort", title:"Orders", data: escorts.data})
+        res.render('manage_esc', {manage:true, isDel:false ,branch: "Escort", title:"Orders", data: escorts})
     })
     .catch(err => res.status(500).json("error" + err));
     
@@ -39,12 +41,16 @@ router.get('/manage_esc', checkAuth, (req,res)=>{
 
 router.get('/update_del', checkAuth, async (req,res)=>{
     const qid = req.query.id;
-    await axios.get('http://middleman-node.herokuapp.com/api/request/',{}, {params: { id: qid}})
-    .then((requestdata)=>{
-        console.log(requestdata);
-        res.render('update_del', {manage:true,isDel:true ,branch: "Deliveries", title:"Orders", request: requestdata.data})
-    })
-    .catch(err=> res.status(500).json("Error"));
+    console.log(qid);
+    const request = await Request.findById(qid)
+    res.render('update_del', {manage:true, isDel:true ,branch: "Deliveries", title:"Orders", request: request})
+});
+
+router.get('/update_esc', checkAuth, async (req,res)=>{
+    const qid = req.query.id;
+    console.log(qid);
+    const escort = await Escort.findById(qid)
+    res.render('update_esc', {manage:true, isDel:true ,branch: "Deliveries", title:"Orders", escort: escort})
 });
 
 router.get('/success', (req,res)=>{
