@@ -36,8 +36,8 @@ router.get('/manage', checkAuth, checkRole, async (req,res)=>{
 
 router.get('/manage_esc', checkAuth, async(req,res)=>{
     await Escort.find()
-    .then(escorts =>{
-        res.render('manage_esc', {manage:true, isDel:false ,branch: "Escort", title:"Orders", data: escorts})
+    .then(requests =>{
+        res.render('manage_esc', {manage:true, isDel:false ,branch: "Escort", title:"Orders", data: requests})
     })
     .catch(err => res.status(500).json("error" + err));
     
