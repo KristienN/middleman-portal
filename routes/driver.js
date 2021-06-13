@@ -28,9 +28,16 @@ router.post("/add", async (req,res)=> {
     .catch((err)=> res.status(400).json('Error: '+ err));
 });
 
-// router.put("/update/:id", async (req,res)=>{
-
-// });
+router.put("/update/:id", async (req,res)=>{
+    const id = req.params.id;
+    await Driver.findByIdAndUpdate(id, req.body, {useFindAndModify: false})
+    .then(data => {
+        res.json("Updated Request!")
+    })
+    .catch(err =>{
+        res.status(500).json("Error: " + err);
+    })
+});
 
 router.delete("/delete/:id", async (req, res)=>{
     const id = req.params.id;

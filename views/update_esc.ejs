@@ -13,37 +13,37 @@
       <form method="POST">
         <div class="input">
           <label for="id">Database ID</label>
-          <input id="id"  type="text" value="<%= request._id%>" readonly required style="background-color: rgb(117, 117, 36);">
+          <input id="id"  type="text" value="<%= escort._id%>" readonly required style="background-color: rgb(117, 117, 36);">
         </div>
 
         <div class="input">
           <label for="traveller">Traveller</label>
-          <input id="traveller" type="text" value="<%= request.traveller%>" placeholder="Supplier name" required>
+          <input id="traveller" type="text" value="<%= escort.traveller%>" placeholder="Supplier name" required>
         </div>
 
         <div class="input">
           <label for="origin">Origin</label>
-          <input id="origin" type="text" value="<%= request.origin%>" placeholder="Pick-up location">
+          <input id="origin" type="text" value="<%= escort.origin%>" placeholder="Pick-up location">
         </div>
 
         <div class="input">
           <label for="destination">Destination</label>
-          <input id="destination" type="text" value="<%= request.destination%>" placeholder="Drop-off location">
+          <input id="destination" type="text" value="<%= escort.destination%>" placeholder="Drop-off location">
         </div>
 
         <div class="input">
           <label for="contact">Contact</label>
-          <input id="contact"  type="text" value="<%= request.contact%>" placeholder="Mobile No.">
+          <input id="contact"  type="text" value="<%= escort.contact%>" placeholder="Mobile No.">
         </div>
 
         <div class="input">
           <label for="driver">Driver</label>
-          <input id="driver"  type="text" value="<%= request.driver%>" placeholder="Driver name">
+          <input id="driver"  type="text" value="<%= escort.driver%>" placeholder="Driver name">
         </div>
 
         <div class="input">
           <label for="price">Price</label>
-          <input id="price" type="text" value="<%= request.price%>" placeholder="5, 6 or 7">
+          <input id="price" type="text" value="<%= escort.price%>" placeholder="5, 6 or 7">
         </div>
          <button id="update-btn-esc" type="submit">Update</button>
       </form>
