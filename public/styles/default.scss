@@ -81,6 +81,15 @@ p{
     font-family: 'Open Sans', sans-serif;
 }
 
+.advert{
+    @include allCentre();
+    border: 2px solid white;
+    padding: 5em;
+    text-align: center;
+    margin: 5em 5em;
+
+}
+
 .nav{
     background-color: #000;
     .nav-wrapper {
