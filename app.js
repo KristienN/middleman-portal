@@ -24,7 +24,6 @@ const bcrypt = require('bcrypt');
 // Flash
 const flash = require('express-flash');
 const session = require('express-session');
-// const MongoStore = require('connect-mongo')(session);
 
 //Axios
 
@@ -59,12 +58,13 @@ initializePassport(passport, async (username)=> {
 })
 
 // Flash & Session
+const MongoStore = require('connect-mongo');
 app.use(flash());
 app.use(session({
    secret: process.env.SESSION_SECRET,
    resave: false,
-   saveUninitialized: false
-//    store: new MongoStore({moongooseConnection: mongoose.connection})
+   saveUninitialized: false,
+   store: MongoStore.create({mongoUrl: process.env.ATLAS_URI})
 }));
 
 app.use(passport.initialize());
