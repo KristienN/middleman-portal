@@ -2,6 +2,7 @@
 Secure Web Portal for Middleman built using Node JS
 
 ### General Info
+Middleman is a start-up courier and escort service based in Harare, Zimbabwe. This project aims to help the logistics department log, view, update, and delete all deliveries, and check if drivers are available.
 
 
 ### Usage
