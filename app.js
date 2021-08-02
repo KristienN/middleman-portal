@@ -55,7 +55,7 @@ const initializePassport = require('./passport-config');
 initializePassport(passport, async (username)=> {
     await User.findOne({username : username});
     await User.findById(user.__id);
-})
+});
 
 // Flash & Session
 const MongoStore = require('connect-mongo');
@@ -100,16 +100,6 @@ app.listen(port, (err)=>{
     if(err) throw err
     console.log(`Server is running on port: ${port}`)
 });
-
-
-
-// function checkNotAuth(res, req, next){
-//     if(req.isAuthenticated()){
-//         res.redirect('orders')
-//     }
-
-//     next();
-// }
 
 
 
